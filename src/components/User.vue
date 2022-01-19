@@ -10,7 +10,7 @@ import {
   onBeforeMount,
   onMounted,
   onBeforeUpdate,
-  onBeforeUnmounted,
+  onBeforeUnmount,
   } from 'vue'
 
 export default {
@@ -19,6 +19,18 @@ export default {
     console.log(content);
     console.log(props);
     const desc = ref(`${props.name}的年龄是${props.age}`)
+    onBeforeMount(()=>{
+      console.log('onBeforeMount');
+    })
+    onMounted(()=>{
+      console.log('onMounted');
+    })
+    onBeforeUpdate(()=>{
+      console.log('onBeforeUpdate');
+    })
+    onBeforeUnmount(()=>{
+      console.log('onBeforeUnmount');
+    })
     return {
       desc
     }

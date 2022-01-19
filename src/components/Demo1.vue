@@ -12,16 +12,19 @@
       <button @click="changeUser">user++</button>
     </div>
     <User :name="user.name" :age="user.age"></User>
+    <Student ></Student>
   </div>
 </template>
 
 <script>
-import { ref, reactive, toRefs, watchEffect,watch  } from 'vue'
+import { ref, reactive, toRefs, watchEffect,watch,provide  } from 'vue'
 import User from './User.vue'
+import Student from './Student.vue'
 
 export default {
   components:{
-    User
+    User,
+    Student,
   },
   setup() {
     const num = ref(0)
@@ -37,6 +40,12 @@ export default {
       user.name += 1
       user.age += 1
     }
+
+    const student = reactive({
+      name: '叶浩杰',
+      classname: '3年2班',
+    })
+    provide('student',student)
 
     watchEffect(()=>{
       console.log(user.name);
