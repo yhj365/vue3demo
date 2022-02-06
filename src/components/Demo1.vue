@@ -18,7 +18,7 @@
 
 <script>
 import { ref, reactive, toRefs, watchEffect,watch,provide  } from 'vue'
-import User from './User.vue'
+import User from './User18.vue'
 import Student from './Student.vue'
 
 export default {

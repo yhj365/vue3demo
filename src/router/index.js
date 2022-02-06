@@ -7,6 +7,9 @@ import News from '../components/News.vue'
 import NotFound from '../components/NotFound.vue'
 import Article from '../components/Article.vue'
 import Films from '../components/Films.vue'
+import User from '../components/User.vue'
+import Hengban from '../components/Hengban.vue'
+import Shuban from '../components/Shuban.vue'
 
 // 2. 定义一些路由
 // 每个路由都需要映射到一个组件。
@@ -19,6 +22,12 @@ const routes = [
   { path: '/article/:id(\\d+)', component: Article },
   // +动态路由参数必须有，可以多个。*参数可以任意个数
   { path: '/films/:id+', component: Films },
+  { path: '/user', component: User,
+    children: [
+      { path: 'hengban',component: Hengban},
+      { path: 'shuban',component: Shuban}
+    ]
+  },
   { path: '/:path(.*)', component: NotFound },
 ]
 
